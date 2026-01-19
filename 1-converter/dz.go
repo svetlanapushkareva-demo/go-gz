@@ -19,3 +19,14 @@ func main() {
 	fmt.Println(RUBMoney, "рубли")
 	fmt.Println(EUR2RUB, "евро в рублях")
 }
+
+func userScan(text string) string {
+	value := ""
+	fmt.Println(text)
+	fmt.Scan(&value)
+
+	return value
+}
+func convertCurrency(amount float64, fromCurrency string, toCurrency string) {
+
+}
