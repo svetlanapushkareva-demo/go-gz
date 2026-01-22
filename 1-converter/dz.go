@@ -28,7 +28,6 @@ func getCurrency(prompt string) string {
 		default:
 			fmt.Println("Ошибка! Доступные валюты: USD, EUR, RUB")
 		}
-		return currency
 	}
 }
 func getUserAmount(promt string) float64 {
