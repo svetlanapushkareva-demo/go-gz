@@ -7,9 +7,9 @@ import (
 func main() {
 	fmt.Println("Конвертер валют")
 	for {
-		fromCurrency := getUserCurrency("Ведите исходную валюту (EUR, USD, RUB):")
+		fromCurrency := getCurrency("Ведите исходную валюту (EUR, USD, RUB):")
 		amount := getUserAmount("Ведите сумму для конвертации:")
-		toCurrency := getToCurrency("Ведите целевую валюту(EUR, USD, RUB):")
+		toCurrency := getCurrency("Ведите целевую валюту(EUR, USD, RUB):")
 		convertCurrency(amount, fromCurrency, toCurrency)
 		if !askYesNo("Выполнить еще одну конвертацию? (да/нет): ") {
 			fmt.Println("До свидания!")
@@ -17,17 +17,19 @@ func main() {
 		}
 	}
 }
-func getUserCurrency(prompt string) string {
+func getCurrency(prompt string) string {
 	fmt.Print(prompt)
 	var currency string
 	fmt.Scan(&currency)
-	switch currency {
-	case "EUR", "USD", "RUB":
+	for {
+		switch currency {
+		case "EUR", "USD", "RUB":
+			return currency
+		default:
+			fmt.Println("Ошибка! Доступные валюты: USD, EUR, RUB")
+		}
 		return currency
-	default:
-		fmt.Println("Ошибка! Доступные валюты: USD, EUR, RUB")
 	}
-	return "currency"
 }
 func getUserAmount(promt string) float64 {
 	fmt.Print(promt)
@@ -44,18 +46,6 @@ func getUserAmount(promt string) float64 {
 		}
 		return amount
 	}
-}
-func getToCurrency(prompt string) string {
-	fmt.Print(prompt)
-	var currency string
-	fmt.Scan(&currency)
-	switch currency {
-	case "EUR", "USD", "RUB":
-		return currency
-	default:
-		fmt.Println("Ошибка! Доступные валюты: USD, EUR, RUB")
-	}
-	return currency
 }
 func convertCurrency(amount float64, fromCurrency string, toCurrency string) {
 	if fromCurrency == toCurrency {
