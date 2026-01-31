@@ -52,24 +52,37 @@ func convertCurrency(amount float64, fromCurrency string, toCurrency string) {
 		return
 	}
 	var result float64
-	var rate float64
-	switch fromCurrency + "_" + toCurrency {
-	case "USD_EUR":
-		rate = 0.86
-	case "USD_RUB":
-		rate = 77.75
-	case "EUR_USD":
-		rate = 1.16
-	case "EUR_RUB":
-		rate = 89.50
-	case "RUB_USD":
-		rate = 0.013
-	case "RUB_EUR":
-		rate = 0.011
-	default:
-		fmt.Println("Ошибка: неподдерживаемая конвертация")
-		return
+	//var rate float64
+
+	key := fromCurrency + "_" + toCurrency
+	fromCurrencyToCurrency := map[string]float64{
+		"USD_EUR": 0.86,
+		"USD_RUB": 77.75,
+		"EUR_USD": 1.16,
+		"EUR_RUB": 89.50,
+		"RUB_USD": 0.013,
+		"RUB_EUR": 0.011,
 	}
+
+	rate := fromCurrencyToCurrency[key]
+
+	//switch fromCurrency + "_" + toCurrency {
+	//case "USD_EUR":
+	//	rate = 0.86
+	//case "USD_RUB":
+	//	rate = 77.75
+	//case "EUR_USD":
+	//	rate = 1.16
+	//case "EUR_RUB":
+	//	rate = 89.50
+	//case "RUB_USD":
+	//	rate = 0.013
+	//case "RUB_EUR":
+	//	rate = 0.011
+	//default:
+	//	fmt.Println("Ошибка: неподдерживаемая конвертация")
+	//	return
+	//}
 
 	result = amount * rate
 
