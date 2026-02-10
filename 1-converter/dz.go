@@ -14,6 +14,7 @@ func main() {
 		"RUB_USD": 0.013,
 		"RUB_EUR": 0.011,
 	}
+
 	for {
 		fromCurrency := getCurrency("Ведите исходную валюту (EUR, USD, RUB):")
 		amount := getUserAmount("Ведите сумму для конвертации:")
