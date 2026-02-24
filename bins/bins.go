@@ -3,20 +3,20 @@ package bins
 import "time"
 
 type Bin struct {
-	id        string
-	private   bool
-	createdAt time.Time
-	name      string
+	Id        string
+	Private   bool
+	CreatedAt time.Time
+	Name      string
 }
 
 func newBin(private bool, name string) *Bin {
 	createdAt := time.Now()
 	id := time.Now().String()
 	return &Bin{
-		id:        id,
-		private:   private,
-		createdAt: createdAt,
-		name:      name,
+		Id:        id,
+		Private:   private,
+		CreatedAt: createdAt,
+		Name:      name,
 	}
 }
 
