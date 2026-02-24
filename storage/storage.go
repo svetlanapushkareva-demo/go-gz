@@ -31,9 +31,9 @@ func SaveBin(b bins.Bin, path string) error {
 
 func GetBinList(path string) (bins.BinList, error) {
 	data, err := file.ReadJSONFile(path)
-	err2 := fmt.Errorf("ты ахуел передавать не JSON!!!, %w", err)
+	err = fmt.Errorf("ты ахуел передавать не JSON, %w", err)
 	if err != nil {
-		if errors.Is(err2, file.ErrFileNotJSON) {
+		if errors.Is(err, file.ErrFileNotJSON) {
 			fmt.Println("файл не является JSON")
 			return nil, err
 		}
